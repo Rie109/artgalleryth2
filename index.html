@@ -3,61 +3,41 @@
   Juvenile Teratophoneus curriei byrankinstudio is licensed under Creative Commons Attribution.
 -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
+    <button id="lookUpButton" style="
+  position: absolute; 
+  top: 20px; 
+  right: 20px; 
+  z-index: 1000; 
+  padding: 10px 15px; 
+  background-color: #131313; 
+  color: white; 
+  border: none; 
+  border-radius: 5px; 
+  font-size: 16px; 
+  cursor: pointer; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transition: background-color 0.3s, transform 0.2s;
+">
+  Look Up at Sky
+</button>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Gallery TH2</title>
-    <link rel="stylesheet" href="/css/style.css" />
-</head>
-<body>
+    <title>A simple Three.JS App</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <main>
-        <!-- Look Up Button -->
-        <button id="lookUpButton" style="
-          position: absolute; 
-          top: 20px; 
-          right: 20px; 
-          z-index: 1000; 
-          padding: 10px 15px; 
-          background-color: #131313; 
-          color: white; 
-          border: none; 
-          border-radius: 5px; 
-          font-size: 16px; 
-          cursor: pointer; 
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-          transition: background-color 0.3s, transform 0.2s;">
-          Look Up at Sky
-        </button>
-        
-
-        <!-- 3D Container -->
-        <div id="container3D"></div>
-        <div id="startScreen">
-          <h1>Art Gallery</h1>
-          <button id="startButton">Start</button>
-        </div>
-
-        <!-- Information Panel -->
-        <div id="info" style="position: absolute; top: 20px; left: -300px; transition: left 0.5s;">
-            <h1 id="artTitle"></h1>
-            <p id="artDescription"></p>
-            <p id="artArtist"></p>
-            <button id="exitButton">Exit</button>
-        </div>
-        
-      <!-- Audio Indicator UI Elements with Image -->
-      <div class="audio-indicator">
-        <img src="pics/disk4.svg" alt="Music Disk" class="disk">
-        <div class="music-info">
-            <span id="song-title">Loading...</span>
-            <span id="artist-name"></span>
-        </div>
+      <div id="container3D"></div>
+      <div id="info" style="position: absolute; top: 20px; left: -300px; transition: left 0.5s;">
+        <h1 id="artTitle"></h1>
+        <p id="artDescription"></p>
+        <p id="artArtist"></p>
+        <button id="exitButton">Exit</button>
     </div>
-</main>
+    </main>
 
-    <!-- Include JS Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script type="module" src="js/main.js"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  </body>
 </html>
