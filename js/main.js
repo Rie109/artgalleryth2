@@ -5,7 +5,7 @@ import { Sky } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/objects/
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(-102, 50, 396);  // Start position: -352, 50, 566
+camera.position.set(-352, 50, 566);  // Start position: -352, 50, 566
 
 let object;
 let objToRender = 'eye';
@@ -189,8 +189,8 @@ const boundaries = {
   maxZ: 700
 };
 
-const moveSpeed = 15; // Reduced move speed
-const rotationSpeed = 0.002; // Reduced turn speed for smoother control
+const moveSpeed = 5; // Reduced move speed
+const rotationSpeed = 0.0005; // Reduced turn speed for smoother control
 
 // Variables to control camera rotation
 let yaw = 0;  // Horizontal rotation
@@ -489,5 +489,35 @@ renderer.domElement.addEventListener('click', (event) => {
     isArtClicked = !isArtClicked; // Toggle display of art info
   }
 });
+
+// -- Start Screen Setup -- //
+const startScreen = document.getElementById('startScreen');
+const startButton = document.getElementById('startButton');
+const songInfo = document.getElementById('songInfo');
+
+// Audio setup
+const listener = new THREE.AudioListener();
+camera.add(listener);
+const sound = new THREE.Audio(listener);
+const audioLoader = new THREE.AudioLoader();
+audioLoader.load('./ambient/ambient2.ogg', function (buffer) {
+  sound.setBuffer(buffer);
+  sound.setLoop(true);
+  sound.setVolume(0.25);
+
+  document.getElementById('song-title').textContent = 'First Raindrops';
+  document.getElementById('artist-name').textContent = 'by: Dennis Kuo';
+});
+
+// Show the start screen and wait for the button click
+startButton.addEventListener('click', () => {
+  gsap.to(startScreen, { opacity: 0, duration: 0.5, onComplete: () => startScreen.style.display = 'none' });
+
+  // Play audio only when the button is clicked
+  sound.play();
+  songInfo.style.display = 'block';
+});
+
+
 
 animate();
