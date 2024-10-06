@@ -37,7 +37,11 @@ header h1 {
   display: flex;
   align-items: center;
   padding: 10px;
+<<<<<<< Updated upstream
   border: 2px solid #3498db;
+=======
+  border: 2px solid #fbfbfb;
+>>>>>>> Stashed changes
   background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
